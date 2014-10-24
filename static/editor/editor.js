@@ -714,6 +714,10 @@ new function($) {
             }
             $('#preview-reader-small-button').on('click', switchNormalModeFromFullReaderMode);
 
+			var saveAsMarkdown = function() {
+			alert('xxxx');
+			}
+			$('#save-as-markdown').on('click', saveAsMarkdown);
             calculateEditorPreviewHeight();
 
             // Switch mode if there is.
@@ -745,9 +749,9 @@ new function($) {
                 $('#notification').modal({keyboard : true});
                 $('#notification-confirm').data('operation', operation); // store function here.
             }
-            _popupConfirm("服务迁移通告", "为更好的提升用户体验，本站服务已迁移到独立服务器：<a href='http://www.zybuluo.com/mdeditor'>http://www.zybuluo.com/mdeditor</a>, 请点击【确定】按钮前往，如果您在本站有编辑中的文稿，请点击【取消】按钮先保存文稿，然后前往新站，本站服务会在近期关停，感谢一路支持。", function () {
+            /*_popupConfirm("服务迁移通告", "为更好的提升用户体验，本站服务已迁移到独立服务器：<a href='http://www.zybuluo.com/mdeditor'>http://www.zybuluo.com/mdeditor</a>, 请点击【确定】按钮前往，如果您在本站有编辑中的文稿，请点击【取消】按钮先保存文稿，然后前往新站，本站服务会在近期关停，感谢一路支持。", function () {
                 window.location = 'http://www.zybuluo.com/mdeditor';
-            });
+            });*/
         }
     }
 })();
