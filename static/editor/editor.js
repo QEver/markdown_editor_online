@@ -715,7 +715,16 @@ new function($) {
             $('#preview-reader-small-button').on('click', switchNormalModeFromFullReaderMode);
 
 			var saveAsMarkdown = function() {
-			alert('xxxx');
+				var preSaveArticle = $('#wmd-input').val();
+				var savedArticle = $.localStorage('article');
+				var aLink = document.createElement('a');
+				aLink.download = "123.txt";
+				var aFileParts = [savedArticle];
+				var evt = document.createEvent("HTMLEvents");
+				evt.initEvent("click", false, false);
+				var blob = new Blob(aFileParts, {type: "application/octet-binary"});
+				aLink.href = URL.createObjectURL(blob);
+				aLink.dispatchEvent(evt);
 			}
 			$('#save-as-markdown').on('click', saveAsMarkdown);
             calculateEditorPreviewHeight();
