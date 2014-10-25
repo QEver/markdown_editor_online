@@ -718,7 +718,18 @@ new function($) {
 				var preSaveArticle = $('#wmd-input').val();
 				var savedArticle = $.localStorage('article');
 				var aLink = document.createElement('a');
-				aLink.download = "123.txt";
+				var lines = savedArticle.split('\n');
+				
+				for(i = 0; i < lines[0].length; i++){
+					if(lines[0][i] != '#'){
+					break;
+					}
+				}
+				var title = lines[0].slice(i);
+				if(title == ''){
+					title = 'untitled';
+				}
+				aLink.download = title + '.md';
 				var aFileParts = [savedArticle];
 				var evt = document.createEvent("HTMLEvents");
 				evt.initEvent("click", false, false);
